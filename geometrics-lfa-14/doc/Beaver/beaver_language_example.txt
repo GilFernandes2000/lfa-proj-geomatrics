@@ -1,0 +1,70 @@
+containers =>
+	square
+>>
+
+Color red => #f24235 >>
+Color blue => 53, 56, 242 >>
+
+Pallete myPallete =>
+	red,
+	blue
+>>
+
+Pallete pallete2 =>
+	red,
+	blue,
+	red
+>>
+
+Rectangle square => size 100,400 >>
+
+Rectangle square =>	
+	size 400, 400
+	angle 180º
+	color red
+	thickness 2 
+	filled true
+>>
+
+Number n => 12 >>
+
+Point c => n,0 >>
+
+square contains =>
+	!! center of container is 0,0
+	Circle cir =>
+		center c
+		diameter 100
+		color blue
+	>>
+
+	cir contains =>
+		Line diagonal => 
+			startingPoint -20, -20
+			endingPoint cir[startingPoint] ++ 2,2
+			color #fffff
+			thickness 2 
+		>>
+
+		Line diagonal =>
+			center cir[center] ++ 10,10
+			length 20
+			angle pi rad
+		>>
+	>>
+
+	Triangle triangle =>
+		color blue
+		p0 10, 2
+		p1 12, 2
+		p2 10, 2
+	>>
+
+	triangle contains =>
+		Rectangle rect =>
+			center c[x], triangle[center][y]
+			size 20, 40
+			filled false
+		>>
+	>>
+>>
